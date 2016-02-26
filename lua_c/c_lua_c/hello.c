@@ -20,8 +20,8 @@ static int add(lua_State* L)
         return luaL_error(L, "invalid parameter type");
     }
 
-    int x = lua_tonumber(L, -1);
-    int y = lua_tonumber(L, -2);
+    int x = lua_tonumber(L, -2);
+    int y = lua_tonumber(L, -1);
 
     lua_pushinteger(L, x+y);
     return 1;

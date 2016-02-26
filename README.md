@@ -555,7 +555,7 @@ call return success
 
 Lua调用C函数步骤如下：
 
-1. 编写C函数，函数参数为luaState*.
+1. 编写C函数，函数参数为lua_State*.
 - C函数接收的Lua参数从栈中获取，返回Lua的参数也push在栈中，返回值为回传给Lua参数个数。
 - 使用luaL_register将C函数注册给lua_State.
 - lua中require "name"时，会调用luaopen_name注册C库中的函数。
@@ -586,8 +586,8 @@ static int add(lua_State* L)
         return luaL_error(L, "invalid parameter type");
     }
 
-    int x = lua_tonumber(L, -1);
-    int y = lua_tonumber(L, -2);
+    int x = lua_tonumber(L, -2);
+    int y = lua_tonumber(L, -1);
 
     lua_pushinteger(L, x+y);
     return 1;
@@ -646,8 +646,8 @@ static int add(lua_State* L)
         return luaL_error(L, "invalid parameter type");
     }
 
-    int x = lua_tonumber(L, -1);
-    int y = lua_tonumber(L, -2);
+    int x = lua_tonumber(L, -2);
+    int y = lua_tonumber(L, -1);
 
     lua_pushinteger(L, x+y);
     return 1;
