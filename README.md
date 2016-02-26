@@ -1,6 +1,15 @@
 #Advanced Lua
 
 
+##源代码编译注意事项
+本片文档中的源代码都在当前目录下。
+
+lua_c 文件夹下存放的是Lua与C交互的例子源代码。
+
+- lua_c/include 为lua头文件
+- lua_c/lib 为Lua静态库，本人是在MacOS上编译的，其他平台需要自行编译。
+- 本文中使用的Lua版本为5.1.4
+
 ## Lua之metatable
 
 
@@ -729,6 +738,11 @@ call return success
 ```
 
 上述例子中，我们新增了一个自己的模块，在main函数中创建lua_State后将自己的模块注册进lua_State。所以在后续的lua文件中，可以不require而直接使用该模块。
+
+## #TODO
+因为时间有限，所以暂时只写了两个模块。后续有时间还会讲解Lua UserData, Lua Coroutine， Lua弱引用以及GC。
+
+
 
 
 
